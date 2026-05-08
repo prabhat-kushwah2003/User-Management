@@ -78,7 +78,7 @@ const ViewUser = () => {
         {/* Profile Image Section */}
         <div className="bg-gray-50 p-6 flex justify-center border-b border-gray-200">
           <img
-            src={`/uploads/${user.profileImage}`}
+            src={`${import.meta.env.VITE_API_URL}/uploads/${user.profileImage}`}
             alt={`${user.firstName} ${user.lastName}`}
             className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md"
           />

@@ -74,7 +74,7 @@ const UserTable = ({ users, onDelete, currentPage, limit }) => {
                 </td>
                 <td className="px-4 py-3">
                   <img
-                    src={`/uploads/${user.profileImage}`}
+                    src={`${import.meta.env.VITE_API_URL}/uploads/${user.profileImage}`}
                     alt={user.firstName}
                     className="w-10 h-10 rounded-full object-cover border border-gray-200"
                   />
