@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "/api/users";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/users`;
 
 /**
  * Get all users with optional search and pagination
@@ -10,7 +10,7 @@ const API_URL = "/api/users";
  */
 export const getUsers = async (page = 1, limit = 5, search = "") => {
   const response = await axios.get(
-    `${API_URL}?page=${page}&limit=${limit}&search=${search}`
+    `${API_URL}?page=${page}&limit=${limit}&search=${search}`,
   );
   return response.data;
 };
@@ -67,10 +67,14 @@ export const exportCSV = async () => {
   // Create download link
   const url = window.URL.createObjectURL(new Blob([response.data]));
   const link = document.createElement("a");
+
   link.href = url;
   link.setAttribute("download", "users.csv");
+
   document.body.appendChild(link);
+
   link.click();
   link.remove();
+
   window.URL.revokeObjectURL(url);
 };
